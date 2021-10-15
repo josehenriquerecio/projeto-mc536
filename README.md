@@ -1,6 +1,6 @@
-# Esse é o repositório do projeto da disciplina MC536
 # Projeto CSVac
-# Equipe CSVac - JHGMA
+Esse é o repositório do projeto da disciplina MC536
+## Equipe CSVac - JHGMA
 Membros:
 * Maria Angélica Lobo Alves Paulino - RA: 183465
 * Gabriella Serrano Santana - RA: 216698
