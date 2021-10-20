@@ -6,16 +6,10 @@
 * José Henrique Dioz Récio - 176622
 
 ## Modelo Lógico Combinado do Banco de Dados de Grafos
-> Coloque aqui o modelo ou modelos que serão usados pela equipe combinando os individuais, conforme especificação.
-> Utilize este [modelo de base](https://docs.google.com/presentation/d/10RN7bDKUka_Ro2_41WyEE76Wxm4AioiJOrsh6BRY3Kk/edit?usp=sharing) para construir o seu.
-> Coloque a imagem do PNG do seu modelo lógico como ilustrado abaixo (a imagem estará na pasta `images`):
->
-> ![Modelo Lógico de Grafos](images/modelo-logico-grafos.png)
+![Modelo Lógico de Grafos](images/modelo-logico-grafos.png)
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
-> Liste aqui as perguntas de pesquisa/análise combinadas e revisadas dos membros da equipe e respectivas análises.
->
 ### Pergunta/Análise 1
 > * Pergunta 1
 >   
