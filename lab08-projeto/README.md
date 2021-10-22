@@ -12,12 +12,14 @@
 
 ### Pergunta/Análise 1
 * Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
+  * Será indentificado quais municípios possuem escolaridade acima da média e se eles também possuem porcentagem de vacinados acima da média. Modalidade de análise: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links. 
 
 ### Pergunta/Análise 2
  * O índice de ruralidade do município influencia nos óbitos e na velocidade/aderência da vacinação?
 
 ### Pergunta/Análise 3
  * O IDHM (IDH do municipio) tem alguma relação com o índice de pessoas vacinadas? E de mortalidade?
+   * Será indentificado quais municípios possuem IDHM acima da média e se eles também possuem porcentagem de vacinados acima da média. Modalidade de análise: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links. 
 
 ### Pergunta/Análise 4
 * Qual é a média de pessoas que são internadas na UTI por COVID-19 e saem vivas? Qual é a chance de uma pessoa internada na UTI por consequência da COVID-19 sair com vida? 
