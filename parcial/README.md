@@ -1,4 +1,5 @@
 # Projeto CSVac
+Projeto Parcial entregue na data 01/10/2021 e movido para esta pasta na data 15/10/2021
 # Equipe CSVac - JHGMA
 * Maria Angélica Lobo Alves Paulino - RA: 183465
 * Gabriella Serrano Santana - RA: 216698
