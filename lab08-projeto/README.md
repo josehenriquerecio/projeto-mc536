@@ -23,7 +23,7 @@
 
 ### Pergunta/Análise 4
 * Qual é a média de pessoas que são internadas na UTI por COVID-19 e saem vivas? Qual é a chance de uma pessoa internada na UTI por consequência da COVID-19 sair com vida? 
-  * Será calculadoo número de pessoas internado na UTI em um 
+  * Será calculado número de pessoas internadas na UTI num determinado período de tempo dividido pelo número dessas pessoas que sairam vivas da internação. Modalidade de análise: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links. 
  
 ### Pergunta/Análise 5
  * Qual é a diferença entre a porcentagem de mulheres que tomaram a vacina e homens que tomaram a vacina? Sabendo isso, essa diferença é relevante? Existe a necessidade de uma campanha de conscientização de vacinação mais direcionada por gênero?
