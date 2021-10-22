@@ -11,8 +11,8 @@
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
 ### Pergunta/Análise 1
-* Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
-  * Será indentificado quais municípios possuem escolaridade acima da média e se eles também possuem porcentagem de vacinados acima da média. Modalidade de análise: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links. 
+* Quais municípios possuem mais unidades de saúde com leitos destinados aos pacientes confirmados de COVID-19? Essa análise é relevante para determinar quais municípios necessitam de mais insumos hospitares com foco no COVID-19. 
+  * A análise será feita verificando quais municípios possem mais arestas conectadas a unidades de saúde. Modalidade de análise: centralidade. 
 
 ### Pergunta/Análise 2
  * O índice de ruralidade do município influencia nos óbitos e na velocidade/aderência da vacinação?
