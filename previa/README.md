@@ -24,21 +24,25 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 ![ER CSVac](images/conceitual.png)
 
 ## Modelos Lógicos Preliminares
-Relacional
-~~~
-Vacinação(_cidade_, data, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens)
+### Relacional
 
+Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens)
+
+    cidade chave estrangeira -> Município(nome)
+  
 Local_de_Vacinação(_nome_, cnes, endereço, cidade, qtd_vacina)
 
-Leitos(_cidade_, data, ocupação_leitos_clinico, ocupação_leitos_uti, saida_obitos, saida_altas)
-
-Unidade_de_saúde(_cnes_, nome_fantasia, endereço, cidade, qtd_leito)
-
+Leitos(_cnes_, _data_, ocupação_leitos_clinico, ocupação_leitos_uti, saida_obitos, saida_altas)
+  
+    cnes chave estrangeira -> Unidade_de_saúde(cnes)
+  
+Unidade_de_saúde(_cnes_, nome_fantasia, endereço, cidade)
+  
+    cidade chave estrangeira -> Município(nome)
+  
 Município(_nome_, idh, escolaridade, ruralidade, pop_0a17anos,  pop_18a35anos,  pop_36a59anos, pop_60+)
-~~~
-> Falta crescentar as infos de chave estrangeira
-
-Grafos de propriedades
+  
+### Grafos de propriedades
 ![Modelo Lógico de Grafos](images/grafo_propriedades.PNG)
 
 ## Dataset Preliminar a ser Publicado
