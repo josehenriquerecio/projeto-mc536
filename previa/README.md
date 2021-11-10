@@ -30,7 +30,7 @@ Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_
 
     cidade chave estrangeira -> Município(nome)
   
-Local_de_Vacinação(_nome_, cnes, endereço, cidade, qtd_vacina)
+Local_de_Vacinação(_nome_, cnes, cidade, qtd_vacina)
 
 Leitos(_cnes_, _data_, ocupação_leitos_clinico, ocupação_leitos_uti, saida_obitos, saida_altas)
   
@@ -81,21 +81,70 @@ Sinopse do Censo Demográfico 2010 Sergipe | `<link para arquivo/base>` | `<brev
 > demonstrar o potencial da base.
 >
 ### Pergunta/Análise 1
-> * Pergunta 1
+> * Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
 >   
 >   * Explicação sucinta da análise que será feita ou conjunto de queries que
 >     responde à pergunta.
 
 ### Pergunta/Análise 2
-> * Pergunta 2
+> * O índice de ruralidade do município influencia nos óbitos e na velocidade/aderência da vacinação?
 >   
 >   * Explicação sucinta da análise que será feita ou conjunto de queries que
 >     responde à pergunta.
 
 ### Pergunta/Análise 3
-> * Pergunta 3
+> * O IDHM (IDH do município) tem alguma relação com o índice de pessoas vacinadas? E de mortalidade?
 >   
 >   * Explicação sucinta da análise que será feita ou conjunto de queries que
 >     responde à pergunta.
+
+### Pergunta/Análise 4
+> * Qual é a média de pessoas que são internadas na UTI por COVID-19 e saem vivas? Qual é a chance de uma pessoa internada na UTI por consequência da COVID-19 sair com vida? 
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 5
+> * Qual é a diferença entre a porcentagem de mulheres que tomaram a vacina e homens que tomaram a vacina? Sabendo isso, essa diferença é relevante? Existe a necessidade de uma campanha de conscientização de vacinação mais direcionada por gênero?
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 6
+> * Qual o percentual por faixa etária de pessoas que foram vacinadas em um determinado período de tempo em determinada cidade? Com base nisso, qual deve ser o maior público alvo da campanha de vacinação durante esse período?
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 7
+> * Quais municípios possuem mais unidades de saúde com leitos destinados aos pacientes confirmados de COVID-19? 
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 8
+> * Quais unidades de saúde possuem mais leitos destinados aos pacientes confirmados de COVID-19?
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 9
+> * Quais locais de vacinação disponibilizaram mais doses de vacina de COVID-19? 
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 10
+> * Se o local de vacinação que mais disponibilizou doses de vacina de COVID-19 não existisse, qual seria a eficiência da campanha de vacinação em comparação com a real?
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
+### Pergunta/Análise 11
+> * Se o local de vacinação que mais disponibilizou doses de vacina de COVID-19 não existisse, onde essas vacinas seriam oferecidas?
+>   
+>   * Explicação sucinta da análise que será feita ou conjunto de queries que
+>     responde à pergunta.
+
 
 > Coloque um link para o arquivo do notebook que executa o conjunto de queries. Ele estará dentro da pasta `notebook`. Se por alguma razão o código não for executável no Jupyter, coloque na pasta `src`. Se as queries forem executadas atraves de uma interface de um SGBD não executável no Jupyter, como o Cypher, apresente na forma de markdown.
