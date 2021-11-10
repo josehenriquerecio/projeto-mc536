@@ -56,10 +56,10 @@ título do arquivo/base | link | breve descrição
 
 Título da base | Link | Descrição
 ----- | ----- | -----
-Campanha Nacional de Vacinação contra Covid-19 | `<link para arquivo/base>` | `<breve descrição do arquivo/base>`
-Registro de Ocupação Hospitalar COVID-19 | `<link para arquivo/base>` | `<breve descrição do arquivo/base>`
-Base de dados do CNES | `<link para arquivo/base>` | `<breve descrição do arquivo/base>`
-Sinopse do Censo Demográfico 2010 Sergipe | `<link para arquivo/base>` | `<breve descrição do arquivo/base>`
+Campanha Nacional de Vacinação contra Covid-19 | [Link da Campanha Nacional de Vacinação contra Covid-19](https://opendatasus.saude.gov.br/dataset/covid-19-vacinacao) | `<breve descrição do arquivo/base>`
+Registro de Ocupação Hospitalar COVID-19 | [Link do Registro de Ocupação Hospitalar COVID-19](https://opendatasus.saude.gov.br/dataset/registro-de-ocupacao-hospitalar) | `<breve descrição do arquivo/base>`
+Base de dados do CNES | [Link da Base de dados do CNES](https://opendatasus.saude.gov.br/dataset/cadastro-nacional-de-estabelecimentos-de-saude-cnes/resource/015d095b-01fe-45ec-9c21-6b6a7476a04f) | `<breve descrição do arquivo/base>`
+Sinopse do Censo Demográfico 2010 Sergipe | [Link da Sinopse do Censo Demográfico 2010 Sergipe](https://censo2010.ibge.gov.br/sinopse/index.php?dados=26&uf=28)  | `<breve descrição do arquivo/base>`
 
 
 ## Operações realizadas para a construção do dataset
