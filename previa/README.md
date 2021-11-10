@@ -39,7 +39,7 @@ Município(_nome_, idh, escolaridade, ruralidade, pop_0a17anos,  pop_18a35anos, 
 > Falta crescentar as infos de chave estrangeira
 
 Grafos de propriedades
-![Modelo Lógico de Grafos](images/grafo_propriedades.png)
+![Modelo Lógico de Grafos](images/grafo_propriedades.PNG)
 
 ## Dataset Preliminar a ser Publicado
 > Elencar os arquivos/bases preliminares dos datasets serão publicados publicados.
