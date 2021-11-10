@@ -6,27 +6,27 @@
 * José Henrique Dioz Récio - 176622
 
 ## Modelo Lógico Combinado do Banco de Dados de Grafos
-> Coloque aqui o modelo ou modelos que serão usados pela equipe combinando os individuais, conforme especificação.
-> Utilize este [modelo de base](https://docs.google.com/presentation/d/10RN7bDKUka_Ro2_41WyEE76Wxm4AioiJOrsh6BRY3Kk/edit?usp=sharing) para construir o seu.
-> Coloque a imagem do PNG do seu modelo lógico como ilustrado abaixo (a imagem estará na pasta `images`):
->
-> ![Modelo Lógico de Grafos](images/modelo-logico-grafos.png)
+![Modelo Lógico de Grafos](images/modelo-logico-grafos.png)
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
-> Liste aqui as perguntas de pesquisa/análise combinadas e revisadas dos membros da equipe e respectivas análises.
->
 ### Pergunta/Análise 1
-> * Pergunta 1
->   
->   * Explicação sucinta da análise que será feita no grafo para atender à pergunta. Deve ser indicado explicitamente em qual das modalidades a análise se encaixa: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links.
+* Quais municípios possuem mais unidades de saúde com leitos destinados aos pacientes confirmados de COVID-19? Essa análise ajuda na determinação de quais municípios necessitam de mais insumos hospitalares com foco no COVID-19. 
+  * A análise será feita verificando quais municípios possuem mais arestas conectadas à unidades de saúde. Modalidade de análise: centralidade. 
 
 ### Pergunta/Análise 2
-> * Pergunta 2
->   
->   * Explicação sucinta da análise que será feita no grafo para atender à pergunta. Deve ser indicado explicitamente em qual das modalidades a análise se encaixa: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links.
-
+* Quais unidades de saúde possuem mais leitos destinados aos pacientes confirmados de COVID-19? Essa análise ajuda na identificação de sobrecargas hospitalares e no planejamento de distribuição de leitos. 
+  * A análise será feita verificando quais unidades de saúde possuem mais arestas conectadas aos leitos. Modalidade de análise: centralidade. 
+  
 ### Pergunta/Análise 3
-> * Pergunta 3
->   
->   * Explicação sucinta da análise que será feita no grafo para atender à pergunta. Deve ser indicado explicitamente em qual das modalidades a análise se encaixa: centralidade; vulnerabilidade; comunidade/modularidade; motifs; predição de links.
+* Quais locais de vacinação disponibilizaram mais doses de vacina de COVID-19? Essa análise ajuda na determinação dos locais de vacinação que mais precisam de insumos hospitalares e de maiores equipes de vacinação. 
+   * A análise será feita verificando quais locais de vacinação possuem mais arestas conectadas às vacinas. Modalidade de análise: centralidade.  
+
+### Pergunta/Análise 4
+* Se o local de vacinação que mais disponibilizou doses de vacina de COVID-19 não existisse, qual seria a eficiência da campanha de vacinação em comparação com a real?
+  * A análise será feita contabilizando as arestas de conexão entre o local de vacinação que mais disponibilizou doses e vacinas, e calculando a porcentagem que esse valor presenta em relação ao total de arestas entre locais de vacinação e vacinas. Modalidade de análise: vulnerabilidade. 
+ 
+### Pergunta/Análise 5
+*  Se o local de vacinação que mais disponibilizou doses de vacina de COVID-19 não existisse, onde essas vacinas seriam oferecidas?
+   * A análise será verificando qual é o segundo local de vacinação que mais disponibiliza dose de vacina de COVID-19. Isso também poderia ser determinado com base no local de vacinação mais próximo daquele que supostamente não existiria mais, porém a análise de localização é muito mais complexa e não condiz com a proposta do trabalho em questão. Modalidade de análise: predição de links.     
+
