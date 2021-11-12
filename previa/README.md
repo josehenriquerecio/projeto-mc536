@@ -18,7 +18,7 @@ Nosso projeto consiste em analisar majoritariamente os seguintes bancos de dados
 Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de leitos, escolaridade, ruralidade, entre outros aspectos que consideramos relevantes e serão detalhados ao longo do projeto. Consideramos essa análise muito importante para combater a desinformação e promover a ciência e seus impactos no bem estar da população. Ademais, fizemos um recorte dessa análise para o estado de Sergipe.
 
 ## Slides da Apresentação
-> Coloque aqui o link para o PDF da apresentação prévia
+[Link dos slides](https://github.com/josehenriquerecio/projeto-mc536/blob/main/previa/slides/CSVac_final.pdf)
 
 ## Modelo Conceitual Preliminar
 ![ER CSVac](images/conceitual.png)
