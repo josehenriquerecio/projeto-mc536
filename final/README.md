@@ -58,21 +58,58 @@ ubs-se| [Link do arquivo ubs-se.csv](https://github.com/josehenriquerecio/projet
 
 Título da base | Link | Descrição
 ----- | ----- | -----
-Campanha Nacional de Vacinação contra Covid-19 | [Link da Campanha Nacional de Vacinação contra Covid-19](https://opendatasus.saude.gov.br/dataset/covid-19-vacinacao) | `<breve descrição do arquivo/base>`
-Registro de Ocupação Hospitalar COVID-19 | [Link do Registro de Ocupação Hospitalar COVID-19](https://opendatasus.saude.gov.br/dataset/registro-de-ocupacao-hospitalar) | `<breve descrição do arquivo/base>`
-Base de dados do CNES | [Link da Base de dados do CNES](https://opendatasus.saude.gov.br/dataset/cadastro-nacional-de-estabelecimentos-de-saude-cnes/resource/015d095b-01fe-45ec-9c21-6b6a7476a04f) | `<breve descrição do arquivo/base>`
-Censo Demográfico 2010 Sergipe via TABnet DATASUS | [Link da Sinopse do Censo Demográfico 2010 Sergipe](http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/popSE.def) | `<breve descrição do arquivo/base>`
+Campanha Nacional de Vacinação contra Covid-19 | [Link da Campanha Nacional de Vacinação contra Covid-19](https://opendatasus.saude.gov.br/dataset/covid-19-vacinacao) | Essa base de dados registra todos os dados referentes a vacinação, sendo estas: informações do paciente, local de vacinação, data, marca da vacina, tipo de dose.
+Registro de Ocupação Hospitalar COVID-19 | [Link do Registro de Ocupação Hospitalar COVID-19](https://opendatasus.saude.gov.br/dataset/registro-de-ocupacao-hospitalar) | Esse banco de dados controla os leitos hospitalares de COVID-19, registrando altas, óbitos e ocupação dos leitos em cada unidade de saúde do país.
+Base de dados do CNES | [Link da Base de dados do CNES](https://opendatasus.saude.gov.br/dataset/cadastro-nacional-de-estabelecimentos-de-saude-cnes/resource/015d095b-01fe-45ec-9c21-6b6a7476a04f) | Essa base de dados armazena o cadastro nacional de estabelecimentos de saúde e suas informações principais, como nome, cidade, endereço e horario de funcionamento.
+Censo Demográfico 2010 Sergipe via TABnet DATASUS | [Link do Censo Demográfico 2010 Sergipe](http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/popSE.def) | Esse site permitiu gerar uma tabela (.csv) com os dados demográficos de Sergipe, com a quantidade de população por faixa etária em cada município do estado.
 
 ## Detalhamento do Projeto
-> Apresente aqui detalhes do processo de construção do dataset e análise. Nesta seção ou na seção de Perguntas podem aparecer destaques de código como indicado a seguir. Note que foi usada uma técnica de highlight de código, que envolve colocar o nome da linguagem na abertura de um trecho com `~~~`, tal como `~~~python`.
-> Os destaques de código devem ser trechos pequenos de poucas linhas, que estejam diretamente ligados a alguma explicação. Não utilize trechos extensos de código. Se algum código funcionar online (tal como um Jupyter Notebook), aqui pode haver links. No caso do Jupyter, preferencialmente para o Binder abrindo diretamente o notebook em questão.
+Aqui estarão detalhas as principais etapas na construção deste dataset.
+
+A construção desse dataset foi feita utilizando Jupyter Notebooks com a linguagem Python. Dentro do ambiente, foram utilizadas as seguintes bibliotecas, instaladas previamente:
+~~~python
+import pandas as pd
+import numpy as np
+from datetime import datetime
+~~~
+
+### Construção de vacinação-se.csv
+
+FALTA ISSO AQUI
+
+### Construção de leitos_final.csv
+Para a construção do .csv de leitos tivemos que importar o registro de leitos do dataset original disponibilizado no datasus, e utilizar métodos da biblioteca pandas para padronizar e selecionar somente o mês da coluna referente as datas de registros. Em seguida, selecionamos apenas as colunas desejadas agrupando por CNES e por mês, somando as ocupaçoes, óbitos e altas, conforme abaixo.
+~~~python
+df['dataNotificacao'] = pd.to_datetime(df['dataNotificacao'], format="%Y-%m-%dT%H:%M:%S.%f", errors='coerce')
+df['mes'] = pd.to_datetime(df['dataNotificacao']).dt.month 
+leitos_final = df.groupby(['cnes','mes'],as_index=False)[['ocupacaoConfirmadoCli', 'ocupacaoConfirmadoUti','saidaConfirmadaObitos','saidaConfirmadaAltas']].sum()
+~~~
+
+### Construção de ubs-se.csv
+Para construir o .csv das unidades de saúde de Sergipe, tomamos o dataset original com todas as unidades de saúde do país. No original havia uma coluna IBGE com o código do município em que a UBS se localiza, então utilizamos o trecho de código abaixo para substituir cada código dos municípios de Sergipe [listados aqui](https://pt.wikipedia.org/wiki/Lista_de_munic%C3%ADpios_de_Sergipe) e em seguida selecionamos apenas as UBS do estado SE (código 28).
 
 ~~~python
-df = pd.read_excel("/content/drive/My Drive/Colab Notebooks/dataset.xlsx");
-sns.set(color_codes=True);
-sns.distplot(df.Hemoglobin);
-plt.show();
+df['Municipio'] = df['IBGE'].astype(str) 
+df["Municipio"].replace({'280010':'Amparo de São Francisco',"280030":"Aracaju",'280020':'Aquidabã','280040':'Arauá',
+'280050':'Areia Branca','280060':'Barra dos Coqueiros','280067':'Boquim','280070':'Brejo Grande','280100':'Campo do Brito','280110':'Canhoba','280120':'Canindé de São Francisco','280130':'Capela','280140':'Carira','280150':'Carmópolis', '...':'...'}, inplace=True)
+temp = df[df["UF"] == 28]
 ~~~
+
+### Construção de municipios.csv
+A construção dessa tabela consistiu apenas no join de duas outras tabelas: municipio_intermed.csv (df2) e população_faixa_etaria.csv (df).
+
+~~~python
+result = df2.join(df[['0 a 19', '20 a 39', '40 a 59', '60+']])
+~~~
+
+### Construção de locais_vacina.csv
+
+Do dataset de vacinação nacional obtido do datasus, extraímos algumas informações como: nome, cnes e cidade. Além disso, somamos a ocorrência de cada local na tabela para assim saber quantas vacinas foram ali aplicadas, e registrando o total em uma nova coluna denominada 'total_vacinas'.
+
+~~~python
+final = df.groupby(['estalecimento_nofantasia','estabelecimento_valor','estabelecimento_municipio_nome']).estalecimento_nofantasia.count().reset_index(name="total_vacinas")
+~~~
+
 
 > Se usar Orange para alguma análise, você pode apresentar uma captura do workflow, como o exemplo a seguir e descrevê-lo:
 ![Workflow no Orange](images/orange-zombie-meals-prediction.png)
