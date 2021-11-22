@@ -26,21 +26,24 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 ## Modelos Lógicos 
 ### Relacional
 
-    Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens) VERIFICARRRRRRRRRRR
+Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens) VERIFICARRRRRRRRRRR
+<br>
+&nbsp; &nbsp; &nbsp; cidade chave estrangeira -> Município(nome)
+</br>
+  
+Local_de_Vacinação(_nome_, cnes, cidade, qtd_vacina)
 
-        cidade chave estrangeira -> Município(nome)
+Leitos(_cnes_, _mes_, ocupaçãoConfirmadoCli, ocupaçãoConfirmadoUti, saidaConfirmadaObitos, saidaConfirmadaAltas)
+<br>
+&nbsp; &nbsp; &nbsp; cnes chave estrangeira -> Unidade_de_saúde(cnes)
+ </br>
+ 
+Unidade_de_saúde(_cnes_, cidade, nome_fantasia, logradouro)
+<br>
+&nbsp; &nbsp; &nbsp; cidade chave estrangeira -> Município(nome)
+</br>
   
-    Local_de_Vacinação(_nome_, cnes, cidade, qtd_vacina)
-
-    Leitos(_cnes_, _mes_, ocupaçãoConfirmadoCli, ocupaçãoConfirmadoUti, saidaConfirmadaObitos, saidaConfirmadaAltas)
-  
-        cnes chave estrangeira -> Unidade_de_saúde(cnes)
-  
-    Unidade_de_saúde(_cnes_, cidade, nome_fantasia, logradouro)
-  
-        cidade chave estrangeira -> Município(nome)
-  
-    Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,  pop_20a39anos,  pop_40a59anos, pop_60+)
+Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,  pop_20a39anos,  pop_40a59anos, pop_60+)
   
 ### Grafos de propriedades
 ![Modelo Lógico de Grafos](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/grafo_de_propriedade.PNG)
@@ -49,7 +52,7 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 
 título do arquivo/base | link | breve descrição
 ----- | ----- | -----
-leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês cada unidades de saúde de Sergipe.
+leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês em cada unidade de saúde de Sergipe.
 locais_vacina | [Link do arquivo locais_vacina.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/locais_vacina.csv) | Esse arquivo modelo csv apresenta a quantidade de vacinas aplicadas em cada local de vacinação e seu respectivo munícipio.
 municipios_final(1)| [Link do arquivo municipios_final(1).csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final%20(1).csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
 ubs-se| [Link do arquivo ubs-se.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/ubs-se.csv) | Esse arquivo modelo csv apresenta o nome, o endereço, o cnes e a cidade de cada unidade de saúde de Sergipe.
