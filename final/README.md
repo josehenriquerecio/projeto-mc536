@@ -43,7 +43,7 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
     Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,  pop_20a39anos,  pop_40a59anos, pop_60+)
   
 ### Grafos de propriedades
-![Modelo Lógico de Grafos](link)
+![Modelo Lógico de Grafos](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/grafo_de_conhecimento.PNG)
 
 ## Dataset Publicado
 > Elencar os arquivos/bases preliminares dos datasets serão publicados publicados.
