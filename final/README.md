@@ -6,14 +6,14 @@
 * Gabriella Serrano Santana - RA: 216698
 
 ## Resumo do Projeto
-Diante a pandemia de COVID-19 declarada em março de 2020 e que se estende até os dias atuais, surgiu a necessidade do gerenciamento dos dados de ocupação de leitos, crescimento da doença e vacinação pelo Ministério da Saúde e disponibilizados no DATASUS com a finalidade de compreender melhor a situação do país e otimizar a gestão de recursos.
+Diante a pandemia de COVID-19 declarada em março de 2020 e que se estende até os dias atuais, surgiu a necessidade do gerenciamento dos dados de ocupação de leitos, crescimento da doença e vacinação pelo Ministério da Saúde. Eles são disponibilizados no DATASUS com a finalidade de compreender melhor a situação do país e otimizar a gestão de recursos.
 
 Nosso projeto consiste em analisar majoritariamente os seguintes bancos de dados:
 
-* Campanha Nacional de Vacinação contra Covid-19
-* Registro de Ocupação Hospitalar COVID-19
-* Base de dados do CNES
-* Sinopse do Censo Demográfico 2010 Sergipe
+* Campanha Nacional de Vacinação contra Covid-19;
+* Registro de Ocupação Hospitalar COVID-19;
+* Base de dados do CNES;
+* Sinopse do Censo Demográfico 2010 Sergipe.
 
 Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de leitos, escolaridade, ruralidade, entre outros aspectos que consideramos relevantes e serão detalhados ao longo do projeto. Consideramos essa análise muito importante para combater a desinformação e promover a ciência e seus impactos no bem estar da população. Ademais, fizemos um recorte dessa análise para o estado de Sergipe.
 
