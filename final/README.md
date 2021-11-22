@@ -61,17 +61,35 @@ Registro de Ocupação Hospitalar COVID-19 | [Link do Registro de Ocupação Hos
 Base de dados do CNES | [Link da Base de dados do CNES](https://opendatasus.saude.gov.br/dataset/cadastro-nacional-de-estabelecimentos-de-saude-cnes/resource/015d095b-01fe-45ec-9c21-6b6a7476a04f) | `<breve descrição do arquivo/base>`
 Sinopse do Censo Demográfico 2010 Sergipe | [Link da Sinopse do Censo Demográfico 2010 Sergipe](https://censo2010.ibge.gov.br/sinopse/index.php?dados=26&uf=28)  | `<breve descrição do arquivo/base>`
 
+## Detalhamento do Projeto
+> Apresente aqui detalhes do processo de construção do dataset e análise. Nesta seção ou na seção de Perguntas podem aparecer destaques de código como indicado a seguir. Note que foi usada uma técnica de highlight de código, que envolve colocar o nome da linguagem na abertura de um trecho com `~~~`, tal como `~~~python`.
+> Os destaques de código devem ser trechos pequenos de poucas linhas, que estejam diretamente ligados a alguma explicação. Não utilize trechos extensos de código. Se algum código funcionar online (tal como um Jupyter Notebook), aqui pode haver links. No caso do Jupyter, preferencialmente para o Binder abrindo diretamente o notebook em questão.
 
-## Operações realizadas para a construção do dataset
+~~~python
+df = pd.read_excel("/content/drive/My Drive/Colab Notebooks/dataset.xlsx");
+sns.set(color_codes=True);
+sns.distplot(df.Hemoglobin);
+plt.show();
+~~~
 
-> Coloque um link para o arquivo do notebook, programas ou workflows que executam as operações de construção do dataset:
+> Se usar Orange para alguma análise, você pode apresentar uma captura do workflow, como o exemplo a seguir e descrevê-lo:
+![Workflow no Orange](images/orange-zombie-meals-prediction.png)
+
+> Coloque um link para o arquivo do notebook, programas ou workflows que executam as operações que você apresentar.
+
+> Aqui devem ser apresentadas as operações de construção do dataset:
 * extração de dados de fontes não estruturadas como, por exemplo, páginas Web
 * agregação de dados fragmentados obtidos a partir de API
 * integração de dados de múltiplas fontes
 * tratamento de dados
 * transformação de dados para facilitar análise e pesquisa
 
-> Se for notebook, ele estará dentro da pasta `notebook`. Se por alguma razão o código não for executável no Jupyter, coloque na pasta `src`. Se as operações envolverem queries executadas atraves de uma interface de um SGBD não executável no Jupyter, como o Cypher, apresente na forma de markdown.
+> Se for notebook, ele estará dentro da pasta `notebook`. Se por alguma razão o código não for executável no Jupyter, coloque na pasta `src` (por exemplo, arquivos do Orange ou Cytoscape). Se as operações envolverem queries executadas atraves de uma interface de um SGBD não executável no Jupyter, como o Cypher, apresente na forma de markdown.
+
+## Evolução do Projeto
+> Relatório de evolução, descrevendo as evoluções na modelagem do projeto, dificuldades enfrentadas, mudanças de rumo, melhorias e lições aprendidas. Referências aos diagramas, modelos e recortes de mudanças são bem-vindos.
+> Podem ser apresentados destaques na evolução dos modelos conceitual e lógico. O modelo inicial e intermediários (quando relevantes) e explicação de refinamentos, mudanças ou evolução do projeto que fundamentaram as decisões.
+> Relatar o processo para se alcançar os resultados é tão importante quanto os resultados.
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
