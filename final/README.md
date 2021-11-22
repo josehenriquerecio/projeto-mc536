@@ -21,7 +21,7 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 [Link dos slides](link)
 
 ## Modelo Conceitual
-![ER CSVac](link)
+![ER CSVac](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/conceitual.png)
 
 ## Modelos Lógicos 
 ### Relacional
