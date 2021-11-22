@@ -20,27 +20,27 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 ## Slides da Apresentação
 [Link dos slides](link)
 
-## Modelo Conceitual Preliminar
+## Modelo Conceitual
 ![ER CSVac](link)
 
-## Modelos Lógicos Preliminares
+## Modelos Lógicos 
 ### Relacional
 
-Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens)
+    Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens) VERIFICARRRRRRRRRRR
 
-    cidade chave estrangeira -> Município(nome)
+        cidade chave estrangeira -> Município(nome)
   
-Local_de_Vacinação(_nome_, cnes, cidade, qtd_vacina)
+    Local_de_Vacinação(_nome_, cnes, cidade, qtd_vacina)
 
-Leitos(_cnes_, _mes_, ocupaçãoConfirmadoCli, ocupaçãoConfirmadoUti, saidaConfirmadaObitos, saidaConfirmadaAltas)
+    Leitos(_cnes_, _mes_, ocupaçãoConfirmadoCli, ocupaçãoConfirmadoUti, saidaConfirmadaObitos, saidaConfirmadaAltas)
   
-    cnes chave estrangeira -> Unidade_de_saúde(cnes)
+        cnes chave estrangeira -> Unidade_de_saúde(cnes)
   
-Unidade_de_saúde(_cnes_, cidade, nome_fantasia, logradouro)
+    Unidade_de_saúde(_cnes_, cidade, nome_fantasia, logradouro)
   
-    cidade chave estrangeira -> Município(nome)
+        cidade chave estrangeira -> Município(nome)
   
-Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,  pop_20a39anos,  pop_40a59anos, pop_60+)
+    Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,  pop_20a39anos,  pop_40a59anos, pop_60+)
   
 ### Grafos de propriedades
 ![Modelo Lógico de Grafos](link)
