@@ -95,7 +95,7 @@ leitos_final = df.groupby(['cnes','mes'],as_index=False)[['ocupacaoConfirmadoCli
 ~~~
 
 ### Construção de ubs-se.csv
-Para construir o .csv das unidades de saúde de Sergipe, tomamos o dataset original com todas as unidades de saúde do país. No original havia uma coluna IBGE com o código do município em que a UBS se localiza, então utilizamos o trecho de código abaixo para substituir cada código dos municípios de Sergipe [listados aqui](https://pt.wikipedia.org/wiki/Lista_de_munic%C3%ADpios_de_Sergipe) e em seguida selecionamos apenas as UBS do estado SE (código 28).
+Para construir o .csv das unidades de saúde de Sergipe, tomamos o dataset original com todas as unidades de saúde do país. No original havia uma coluna IBGE com o código do município em que a UBS se localiza, então utilizamos o trecho de código abaixo para substituir cada código dos municípios de Sergipe [listados aqui](https://pt.wikipedia.org/wiki/Lista_de_munic%C3%ADpios_de_Sergipe) pelo nome do município e em seguida selecionamos apenas as UBS do estado SE (código 28).
 
 ~~~python
 df['Municipio'] = df['IBGE'].astype(str) 
