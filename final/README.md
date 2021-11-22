@@ -76,6 +76,12 @@ import numpy as np
 from datetime import datetime
 ~~~
 
+Para importar os arquivos .csv das bases de terceiro referenciadas nesse projeto, utilizamos o trecho abaixo com uso da biblioteca pandas e alguns parâmetros que variam de acordo com o .csv, como o de separados, ou especificação de campos com data.
+
+~~~python
+df = pd.read_csv('../data/external/nomedoarquivo.csv', sep=';')
+~~~
+
 ### Construção de vacinação-se.csv
 
 FALTA ISSO AQUI
@@ -113,20 +119,6 @@ Do dataset de vacinação nacional obtido do datasus, extraímos algumas informa
 final = df.groupby(['estalecimento_nofantasia','estabelecimento_valor','estabelecimento_municipio_nome']).estalecimento_nofantasia.count().reset_index(name="total_vacinas")
 ~~~
 
-
-> Se usar Orange para alguma análise, você pode apresentar uma captura do workflow, como o exemplo a seguir e descrevê-lo:
-![Workflow no Orange](images/orange-zombie-meals-prediction.png)
-
-> Coloque um link para o arquivo do notebook, programas ou workflows que executam as operações que você apresentar.
-
-> Aqui devem ser apresentadas as operações de construção do dataset:
-* extração de dados de fontes não estruturadas como, por exemplo, páginas Web
-* agregação de dados fragmentados obtidos a partir de API
-* integração de dados de múltiplas fontes
-* tratamento de dados
-* transformação de dados para facilitar análise e pesquisa
-
-> Se for notebook, ele estará dentro da pasta `notebook`. Se por alguma razão o código não for executável no Jupyter, coloque na pasta `src` (por exemplo, arquivos do Orange ou Cytoscape). Se as operações envolverem queries executadas atraves de uma interface de um SGBD não executável no Jupyter, como o Cypher, apresente na forma de markdown.
 
 ## Evolução do Projeto
 > Relatório de evolução, descrevendo as evoluções na modelagem do projeto, dificuldades enfrentadas, mudanças de rumo, melhorias e lições aprendidas. Referências aos diagramas, modelos e recortes de mudanças são bem-vindos.
