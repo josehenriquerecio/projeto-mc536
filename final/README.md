@@ -46,11 +46,13 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 ![Modelo Lógico de Grafos](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/grafo_de_propriedade.PNG)
 
 ## Dataset Publicado
-> Elencar os arquivos/bases preliminares dos datasets serão publicados publicados.
 
 título do arquivo/base | link | breve descrição
 ----- | ----- | -----
-`<título da base>` | `<link para a página da base>` | `<breve descrição da base>`
+leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês cada unidades de saúde de Sergipe.
+locais_vacina | [Link do arquivo locais_vacina.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/locais_vacina.csv) | Esse arquivo modelo csv apresenta a quantidade de vacinas aplicadas em cada local de vacinação e seu respectivo munícipio.
+municipios_final(1)| [Link do arquivo municipios_final(1).csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final%20(1).csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
+ubs-se| [Link do arquivo ubs-se.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/ubs-se.csv) | Esse arquivo modelo csv apresenta o nome, o endereço, o cnes e a cidade de cada unidade de saúde de Sergipe.
 
 ## Bases de Dados
 
