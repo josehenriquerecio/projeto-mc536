@@ -83,13 +83,7 @@ df = pd.read_csv('../data/external/nomedoarquivo.csv', sep=';')
 ~~~
 
 ### Construção de final_vacinacao.csv
-Para a construção do .csv de  tivemos que importar o registro de leitos do dataset original disponibilizado no datasus, e utilizar métodos da biblioteca pandas para padronizar e selecionar somente o mês da coluna referente as datas de registros. Em seguida, selecionamos apenas as colunas desejadas agrupando por CNES e por mês, somando as ocupaçoes, óbitos e altas, conforme abaixo.
-~~~python
-df['dataNotificacao'] = pd.to_datetime(df['dataNotificacao'], format="%Y-%m-%dT%H:%M:%S.%f", errors='coerce')
-df['mes'] = pd.to_datetime(df['dataNotificacao']).dt.month 
-leitos_final = df.groupby(['cnes','mes'],as_index=False)[['ocupacaoConfirmadoCli', 'ocupacaoConfirmadoUti','saidaConfirmadaObitos','saidaConfirmadaAltas']].sum()
-~~~
-MUDARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+Para a construção do .csv da vacinação tivemos que importar os dados sobre a vacinação do dataset original disponibilizado no Datasus. Em seguida, definimos as faixas etárias que seriam analisadas, selecionamos apenas as colunas desejadas agrupando por munícipio e por mês, somando os vacinados completos e parciais, homens e mulheres em cada faixa etária.
 
 ### Construção de leitos_final.csv
 Para a construção do .csv de leitos tivemos que importar o registro de leitos do dataset original disponibilizado no datasus, e utilizar métodos da biblioteca pandas para padronizar e selecionar somente o mês da coluna referente as datas de registros. Em seguida, selecionamos apenas as colunas desejadas agrupando por CNES e por mês, somando as ocupaçoes, óbitos e altas, conforme abaixo.
