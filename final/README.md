@@ -50,7 +50,7 @@ Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,
 
 ## Dataset Publicado
 
-título do arquivo/base | link | breve descrição
+Título do arquivo/base | Link | Breve descrição
 ----- | ----- | -----
 leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês em cada unidade de saúde de Sergipe.
 locais_vacina | [Link do arquivo locais_vacina.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/locais_vacina.csv) | Esse arquivo modelo csv apresenta a quantidade de vacinas aplicadas em cada local de vacinação e seu respectivo munícipio.
@@ -76,7 +76,7 @@ import numpy as np
 from datetime import datetime
 ~~~
 
-Para importar os arquivos .csv das bases de terceiro referenciadas nesse projeto, utilizamos o trecho abaixo com uso da biblioteca pandas e alguns parâmetros que variam de acordo com o .csv, como o de separados, ou especificação de campos com data.
+Para importar os arquivos .csv das bases de terceiro referenciadas nesse projeto, utilizamos o trecho abaixo com uso da biblioteca pandas e alguns parâmetros que variam de acordo com o .csv, como o tipo de separador, ou especificação de campos com data.
 
 ~~~python
 df = pd.read_csv('../data/external/nomedoarquivo.csv', sep=';')
