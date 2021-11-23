@@ -26,9 +26,9 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 ## Modelos Lógicos 
 ### Relacional
 
-Vacinação(_cidade_, _data_, qtd_0a17anos,  qtd_18a35anos,  qtd_36a59anos, qtd_60+, qtd_mulheres, qtd_homens) VERIFICARRRRRRRRRRR
+Vacinação(_municipios_, _date_, vacinados_parcial_F_17, vacinados_parcial_M_17, vacinados_completo_F_17, vacinados_completo_M_17, vacinados_parcial_F_35, vacinados_parcial_M_35, vacinados_completo_F_35, vacinados_completo_M_35, vacinados_parcial_F_59, vacinados_parcial_M_59, vacinados_completo_F_59, vacinados_completo_M_59, vacinados_parcial_F_200, vacinados_parcial_M_200, vacinados_completo_F_200, vacinados_completo_M_200) 
 <br>
-&nbsp; &nbsp; &nbsp; cidade chave estrangeira -> Município(nome)
+&nbsp; &nbsp; &nbsp; municipios chave estrangeira -> Município(nome)
 </br>
   
 Local_de_Vacinação(_nome_, cnes, cidade, qtd_vacina)
@@ -82,9 +82,14 @@ Para importar os arquivos .csv das bases de terceiro referenciadas nesse projeto
 df = pd.read_csv('../data/external/nomedoarquivo.csv', sep=';')
 ~~~
 
-### Construção de vacinação-se.csv
-
-FALTA ISSO AQUI
+### Construção de final_vacinacao.csv
+Para a construção do .csv de  tivemos que importar o registro de leitos do dataset original disponibilizado no datasus, e utilizar métodos da biblioteca pandas para padronizar e selecionar somente o mês da coluna referente as datas de registros. Em seguida, selecionamos apenas as colunas desejadas agrupando por CNES e por mês, somando as ocupaçoes, óbitos e altas, conforme abaixo.
+~~~python
+df['dataNotificacao'] = pd.to_datetime(df['dataNotificacao'], format="%Y-%m-%dT%H:%M:%S.%f", errors='coerce')
+df['mes'] = pd.to_datetime(df['dataNotificacao']).dt.month 
+leitos_final = df.groupby(['cnes','mes'],as_index=False)[['ocupacaoConfirmadoCli', 'ocupacaoConfirmadoUti','saidaConfirmadaObitos','saidaConfirmadaAltas']].sum()
+~~~
+MUDARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 
 ### Construção de leitos_final.csv
 Para a construção do .csv de leitos tivemos que importar o registro de leitos do dataset original disponibilizado no datasus, e utilizar métodos da biblioteca pandas para padronizar e selecionar somente o mês da coluna referente as datas de registros. Em seguida, selecionamos apenas as colunas desejadas agrupando por CNES e por mês, somando as ocupaçoes, óbitos e altas, conforme abaixo.
@@ -121,13 +126,8 @@ final = df.groupby(['estalecimento_nofantasia','estabelecimento_valor','estabele
 
 
 ## Evolução do Projeto
-> Relatório de evolução, descrevendo as evoluções na modelagem do projeto, dificuldades enfrentadas, mudanças de rumo, melhorias e lições aprendidas. Referências aos diagramas, modelos e recortes de mudanças são bem-vindos.
-> Podem ser apresentados destaques na evolução dos modelos conceitual e lógico. O modelo inicial e intermediários (quando relevantes) e explicação de refinamentos, mudanças ou evolução do projeto que fundamentaram as decisões.
-> Relatar o processo para se alcançar os resultados é tão importante quanto os resultados.
 
-> acho que da pra detalhar mais e acrescentar coisas
-> 
-Inicialmente, o projeto CSVac iria relacionar os dados de vacinação e registro de leitos apenas. Porém, nossas perguntas e análises eram muito limitadas, então com incentivo do professor acrescentamos novos bancos externos como referência e novos fatores que seriam considerados: dados populacionais, IDH, escolarização e ruralidade fornecidos pelo IBGE, dados sobres as unidades de saúde e locais de vacinação disponibilizados pelo DataSUS. Esses novos dados, nos permitiram melhoras nossas pergutas de análise tornando-as mais complexas e relevantes.
+Inicialmente, o projeto CSVac iria relacionar os dados de vacinação e registro de leitos apenas. Porém, nossas perguntas e análises eram muito limitadas, então com incentivo do professor acrescentamos novos bancos externos como referência e novos fatores que seriam considerados: dados populacionais, IDH, escolarização e ruralidade fornecidos pelo IBGE, dados sobres as unidades de saúde e locais de vacinação disponibilizados pelo DataSUS. Esses novos dados, nos permitiram melhoras nossas perguntas de análise tornando-as mais complexas e relevantes.
 
 Tendo isso em mente, nossos modelos conceitual e lógico relacional sofreram grandes modificações. Abaixo é mostrado os nossos modelos conceitual e lógico relacional anteriores.
 
@@ -151,9 +151,9 @@ Município(_nome_, pop0a4anos, pop5a9anos, pop10a13anos, pop14a17anos, pop18a35a
 
 Comparando esses modelos anteriores com os modelos finais já apresentados nesse documento, podemos observar que foram inseridos no modelo conceitual os objetos Local de vacinação e Unidade de saúde e suas respectivas propriedades e relações, além da adição de outras propriedades em objetos que já existiam. Já no modelo lógico relacional foram acrescidas novas entidades e as já existentes foram alteradas inserindo e excluindo atributos.
 
-Com essas alterações o volume de dados aumentou, o que nos trouxe algumas dificuldades. Aprender alguns recursos da biblioteca pandas para manipulação dos arquivos .csv já iria tomar um tempo, e o tamanho de alguns arquivos externos obtidos dificultavam muito seu processamento, gastando então mais tempo nos testes do código da construção do nosso dataset. Além disso, alguns bancos de dados apresentavam dados desorganizados ou mal coletados, como campos que deveriam ser numéricos com conteúdo em texto, e vice-versa, dados faltantes, etc. Tais dados tiveram que ser tratados, como foi a caso dos campos das datas de notificação de leitos que não seguiam o formato de data e foram substituidas pela string 'coerce' que indica um erro.
+Com essas alterações o volume de dados aumentou, o que nos trouxe algumas dificuldades. Aprender alguns recursos da biblioteca pandas para manipulação dos arquivos .csv já iria tomar um tempo, e o tamanho de alguns arquivos externos obtidos dificultavam muito seu processamento, gastando então mais tempo nos testes do código da construção do nosso dataset. Além disso, alguns bancos de dados apresentavam dados desorganizados ou mal coletados, como campos que deveriam ser numéricos com conteúdo em texto, e vice-versa, dados faltantes, etc. Tais dados tiveram que ser tratados, como foi a caso dos campos das datas de notificação de leitos que não seguiam o formato de data e foram substituídas pela string 'coerce' que indica um erro.
 
-Por fim, elaboramos queries que implementam algumas das perguntas de análise que foram aprimoradas ao longo do projeto. 
+Por fim, elaboramos queries que implementam algumas das perguntas de análise que foram aprimoradas ao longo do projeto e que estão expostas no tópico abaixo. 
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
@@ -194,36 +194,6 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
 
 ### Pergunta/Análise 6
  * Qual o percentual por faixa etária de pessoas que foram vacinadas em um determinado período de tempo em determinada cidade? Com base nisso, qual deve ser o maior público alvo da campanha de vacinação durante esse período?
-   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
-
-### Pergunta/Análise 7
- * Quais municípios possuem mais unidades de saúde com leitos destinados aos pacientes confirmados de COVID-19? 
-   
-  * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
-
-### Pergunta/Análise 8
- * Quais unidades de saúde possuem mais leitos destinados aos pacientes confirmados de COVID-19?
-   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
-
-### Pergunta/Análise 9
- * Quais locais de vacinação disponibilizaram mais doses de vacina de COVID-19? 
-   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
-
-### Pergunta/Análise 10
- * Se o local de vacinação que mais disponibilizou doses de vacina de COVID-19 não existisse, qual seria a eficiência da campanha de vacinação em comparação com a real?
-   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
-
-### Pergunta/Análise 11
- * Se o local de vacinação que mais disponibilizou doses de vacina de COVID-19 não existisse, onde essas vacinas seriam oferecidas?
    
    * Explicação sucinta da análise que será feita ou conjunto de queries que
      responde à pergunta.
