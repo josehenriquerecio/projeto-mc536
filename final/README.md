@@ -125,6 +125,17 @@ final = df.groupby(['estalecimento_nofantasia','estabelecimento_valor','estabele
 > Podem ser apresentados destaques na evolução dos modelos conceitual e lógico. O modelo inicial e intermediários (quando relevantes) e explicação de refinamentos, mudanças ou evolução do projeto que fundamentaram as decisões.
 > Relatar o processo para se alcançar os resultados é tão importante quanto os resultados.
 
+> acho que da pra detalhar mais e acrescentar coisas
+> 
+Inicialmente, o projeto CSVac iria relacionar os dados de vacinação e registro de leitos apenas. Porém nossas perguntas e análises seriam muito limitadas e então com incentivo do professor acrescentamos novos bancos externos como referência e novos fatores que seriam considerados: dados populacionais, IDH, escolarização e ruralidade fornecidos pelo IBGE.
+
+Tendo isso em mente, nossos modelos conceitual e lógicos (relacional e grafos) sofreram grandes modificações. 
+
+DETALHAR MUDANÇAS AQUI - (COMPARAR IMAGENS ANTIGAS E NOVAS DO MODELO ??) - 
+
+Com esse grande volume de dados enfrentamos algumas dificuldades. Aprender alguns recursos da biblioteca pandas para manipulação dos arquivos .csv já iria tomar um tempo, e o tamanho de alguns arquivos externos obtidos dificultavam muito seu processamento, gastando então mais tempo nos testes do código da construção do nosso dataset. Além disso, alguns bancos de dados apresentavam dados desorganizados ou mal coletados, como campos que deveriam ser numéricos com conteúdo em texto, e vice-versa, dados faltantes, etc.
+
+
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
 > Liste aqui as perguntas de pesquisa/análise e respectivas análises.
