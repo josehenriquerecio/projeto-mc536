@@ -26,7 +26,7 @@ Nossa proposta é relacionar a vacinação contra a COVID-19, a ocupação de le
 ## Modelos Lógicos 
 ### Relacional
 
-Vacinação(_municipios_, _date_, vacinados_parcial_F_17, vacinados_parcial_M_17, vacinados_completo_F_17, vacinados_completo_M_17, vacinados_parcial_F_35, vacinados_parcial_M_35, vacinados_completo_F_35, vacinados_completo_M_35, vacinados_parcial_F_59, vacinados_parcial_M_59, vacinados_completo_F_59, vacinados_completo_M_59, vacinados_parcial_F_200, vacinados_parcial_M_200, vacinados_completo_F_200, vacinados_completo_M_200) 
+Vacinação(_municipios_, _date_, vacinados_parcial_F_19, vacinados_parcial_M_19, vacinados_completo_F_19, vacinados_completo_M_19, vacinados_parcial_F_39, vacinados_parcial_M_39, vacinados_completo_F_39, vacinados_completo_M_39, vacinados_parcial_F_59, vacinados_parcial_M_59, vacinados_completo_F_59, vacinados_completo_M_59, vacinados_parcial_F_200, vacinados_parcial_M_200, vacinados_completo_F_200, vacinados_completo_M_200)
 <br>
 &nbsp; &nbsp; &nbsp; municipios chave estrangeira -> Município(nome)
 </br>
