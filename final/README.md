@@ -127,14 +127,33 @@ final = df.groupby(['estalecimento_nofantasia','estabelecimento_valor','estabele
 
 > acho que da pra detalhar mais e acrescentar coisas
 > 
-Inicialmente, o projeto CSVac iria relacionar os dados de vacinação e registro de leitos apenas. Porém nossas perguntas e análises seriam muito limitadas e então com incentivo do professor acrescentamos novos bancos externos como referência e novos fatores que seriam considerados: dados populacionais, IDH, escolarização e ruralidade fornecidos pelo IBGE.
+Inicialmente, o projeto CSVac iria relacionar os dados de vacinação e registro de leitos apenas. Porém, nossas perguntas e análises eram muito limitadas, então com incentivo do professor acrescentamos novos bancos externos como referência e novos fatores que seriam considerados: dados populacionais, IDH, escolarização e ruralidade fornecidos pelo IBGE, dados sobres as unidades de saúde e locais de vacinação disponibilizados pelo DataSUS. Esses novos dados, nos permitiram melhoras nossas pergutas de análise tornando-as mais complexas e relevantes.
 
-Tendo isso em mente, nossos modelos conceitual e lógicos (relacional e grafos) sofreram grandes modificações. 
+Tendo isso em mente, nossos modelos conceitual e lógico relacional sofreram grandes modificações. Abaixo é mostrado os nossos modelos conceitual e lógico relacional anteriores.
 
-DETALHAR MUDANÇAS AQUI - (COMPARAR IMAGENS ANTIGAS E NOVAS DO MODELO ??) - 
+**Modelo conceitual anterior**
 
-Com esse grande volume de dados enfrentamos algumas dificuldades. Aprender alguns recursos da biblioteca pandas para manipulação dos arquivos .csv já iria tomar um tempo, e o tamanho de alguns arquivos externos obtidos dificultavam muito seu processamento, gastando então mais tempo nos testes do código da construção do nosso dataset. Além disso, alguns bancos de dados apresentavam dados desorganizados ou mal coletados, como campos que deveriam ser numéricos com conteúdo em texto, e vice-versa, dados faltantes, etc.
+![Modelo conceitual antigo](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/modelo-conceitual-antigo.PNG)
 
+**Modelo lógico relacional anterior** 
+
+Vacinação(_cidade_, _data_, qtd_0a4anos, qtd_5a9anos, qtd_10a13anos, qtd_14a17anos, qtd_18a35anos, qtd_36a59anos, qtd_60+) 
+<br>
+&nbsp; &nbsp; &nbsp; cidade chave estrangeira -> Município(nome)
+</br>
+
+Leitos(_cidade_, _mes_, ocupaçãoConfirmadoCli, ocupaçãoConfirmadoUti, saidaConfirmadaObitos, saidaConfirmadaAltas)
+<br>
+&nbsp; &nbsp; &nbsp; cidade chave estrangeira -> Município(nome)
+ </br>
+  
+Município(_nome_, pop0a4anos, pop5a9anos, pop10a13anos, pop14a17anos, pop18a35anos, pop36a59anos, pop60+)
+
+Comparando esses modelos anteriores com os modelos finais já apresentados nesse documento, podemos observar que foram inseridos no modelo conceitual os objetos Local de vacinação e Unidade de saúde e suas respectivas propriedades e relações, além da adição de outras propriedades em objetos que já existiam. Já no modelo lógico relacional foram acrescidas novas entidades e as já existentes foram alteradas inserindo e excluindo atributos.
+
+Com essas alterações o volume de dados aumentou, o que nos trouxe algumas dificuldades. Aprender alguns recursos da biblioteca pandas para manipulação dos arquivos .csv já iria tomar um tempo, e o tamanho de alguns arquivos externos obtidos dificultavam muito seu processamento, gastando então mais tempo nos testes do código da construção do nosso dataset. Além disso, alguns bancos de dados apresentavam dados desorganizados ou mal coletados, como campos que deveriam ser numéricos com conteúdo em texto, e vice-versa, dados faltantes, etc. Tais dados tiveram que ser tratados, como foi a caso dos campos das datas de notificação de leitos que não seguiam o formato de data e foram substituidas pela string 'coerce' que indica um erro.
+
+Por fim, elaboramos queries que implementam algumas das perguntas de análise que foram aprimoradas ao longo do projeto. 
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
