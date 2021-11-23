@@ -52,6 +52,7 @@ Município(_nome_, população, idhm, escolarização, ruralidade, pop_0a19anos,
 
 Título do arquivo/base | Link | Breve descrição
 ----- | ----- | -----
+final_vacinacao | [Link do arquivo final_vacinacao.csv]() | Esse arquivo modelo csv apresenta o número de homens e mulheres com vacinação completa e parcial de cada faixa etária para todas as cidade de Sergipe por mês.
 leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês em cada unidade de saúde de Sergipe.
 locais_vacina | [Link do arquivo locais_vacina.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/locais_vacina.csv) | Esse arquivo modelo csv apresenta a quantidade de vacinas aplicadas em cada local de vacinação e seu respectivo munícipio.
 municipios_final(1)| [Link do arquivo municipios_final(1).csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final%20(1).csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
@@ -83,7 +84,19 @@ df = pd.read_csv('../data/external/nomedoarquivo.csv', sep=';')
 ~~~
 
 ### Construção de final_vacinacao.csv
-Para a construção do .csv da vacinação tivemos que importar os dados sobre a vacinação do dataset original disponibilizado no Datasus. Em seguida, definimos as faixas etárias que seriam analisadas, selecionamos apenas as colunas desejadas agrupando por munícipio e por mês, somando os vacinados completos e parciais, homens e mulheres em cada faixa etária.
+Para a construção do .csv da vacinação tivemos que importar os dados sobre a vacinação do dataset original disponibilizado no Datasus. Em seguida, definimos as faixas etárias que seriam analisadas e especificamos que uma dose da vacina do fabricante JANSSEN corresponde a vacinação completa, isso foi realizado através do pedaço de código abaixo.
+~~~python
+df = df.assign(vacinacao_completa=(df.vacina_descricao_dose == '2ª Dose').where((df.vacina_fabricante_nome != 'JANSSEN'), True))
+~~~
+Depois selecionamos apenas as colunas desejadas agrupando por munícipio e por mês, somando os vacinados completos e parciais, homens e mulheres em cada faixa etária. O treche de código a seguir mostra uma parte da implementação para determinar o número de mulheres com vacinação parcial em cada faixa etária por cidade. Uma implementação similar a esta foi utilizada para fornecer o número de mulher e homens com vacinação completa em cada faixa etária por cidade e o número de homens com vacinação parcial em cada faixa etária por cidade.
+~~~python
+temp1_F = df[   (df['paciente_idade'] > group[0]) &
+         (df['paciente_idade'] < group[1]) &
+         (df['vacina_dataaplicacao'] < date) &
+         (df['vacinacao_completa'] == False) &
+         (df['paciente_enumsexobiologico'] == 'F')].groupby(['estabelecimento_municipio_nome']).size().to_frame('vacinados_parcial_F_' + str(group[1]))
+df_ages = df_ages.merge(temp1_F, how='left', left_on='municipios', right_on='estabelecimento_municipio_nome').fillna(0)
+~~~~
 
 ### Construção de leitos_final.csv
 Para a construção do .csv de leitos tivemos que importar o registro de leitos do dataset original disponibilizado no datasus, e utilizar métodos da biblioteca pandas para padronizar e selecionar somente o mês da coluna referente as datas de registros. Em seguida, selecionamos apenas as colunas desejadas agrupando por CNES e por mês, somando as ocupaçoes, óbitos e altas, conforme abaixo.
