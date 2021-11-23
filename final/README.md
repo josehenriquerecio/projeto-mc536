@@ -88,7 +88,7 @@ Para a construção do .csv da vacinação tivemos que importar os dados sobre a
 ~~~python
 df = df.assign(vacinacao_completa=(df.vacina_descricao_dose == '2ª Dose').where((df.vacina_fabricante_nome != 'JANSSEN'), True))
 ~~~
-Depois selecionamos apenas as colunas desejadas agrupando por munícipio e por mês, somando os vacinados completos e parciais, homens e mulheres em cada faixa etária. O treche de código a seguir mostra uma parte da implementação para determinar o número de mulheres com vacinação parcial em cada faixa etária por cidade. Uma implementação similar a esta foi utilizada para fornecer o número de mulher e homens com vacinação completa em cada faixa etária por cidade e o número de homens com vacinação parcial em cada faixa etária por cidade.
+Depois selecionamos apenas as colunas desejadas agrupando por munícipio e por mês, somando os vacinados completos e parciais, homens e mulheres em cada faixa etária. O trecho de código a seguir mostra uma parte da implementação para determinar o número de mulheres com vacinação parcial em cada faixa etária por cidade. Uma implementação similar a esta foi utilizada para fornecer o número de mulher e homens com vacinação completa em cada faixa etária por cidade e o número de homens com vacinação parcial em cada faixa etária por cidade.
 ~~~python
 temp1_F = df[   (df['paciente_idade'] > group[0]) &
          (df['paciente_idade'] < group[1]) &
