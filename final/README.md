@@ -55,7 +55,7 @@ Título do arquivo/base | Link | Breve descrição
 final_vacinacao | [Link do arquivo final_vacinacao.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/final_vacinacao.csv) | Esse arquivo modelo csv apresenta o número de homens e mulheres com vacinação completa e parcial de cada faixa etária para todas as cidade de Sergipe por mês.
 leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês em cada unidade de saúde de Sergipe.
 locais_vacina | [Link do arquivo locais_vacina.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/locais_vacina.csv) | Esse arquivo modelo csv apresenta a quantidade de vacinas aplicadas em cada local de vacinação e seu respectivo município.
-municipios_final(1)| [Link do arquivo municipios_final(1).csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final%20(1).csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
+municipios_final| [Link do arquivo municipios_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final.csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
 ubs-se| [Link do arquivo ubs-se.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/ubs-se.csv) | Esse arquivo modelo csv apresenta o nome, o endereço, o cnes e a cidade de cada unidade de saúde de Sergipe.
 
 ## Bases de Dados
@@ -163,11 +163,6 @@ Com essas alterações o volume de dados aumentou, o que nos trouxe algumas difi
 Por fim, elaboramos queries que implementam algumas das perguntas de análise que foram aprimoradas ao longo do projeto e que estão expostas no tópico abaixo. 
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
-
-> Liste aqui as perguntas de pesquisa/análise e respectivas análises.
-> Nem todas as perguntas precisam de queries que as implementam.
-> É possível haver perguntas em que a solução é apenas descrita para
-> demonstrar o potencial da base.
 
 ### Pergunta/Análise 1
 * Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
