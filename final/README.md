@@ -55,7 +55,7 @@ Título do arquivo/base | Link | Breve descrição
 final_vacinacao | [Link do arquivo final_vacinacao.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/final_vacinacao.csv) | Esse arquivo modelo csv apresenta o número de homens e mulheres com vacinação completa e parcial de cada faixa etária para todas as cidade de Sergipe por mês.
 leitos_final | [Link do arquivo leitos_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/leitos_final.csv) | Esse arquivo modelo csv apresenta o número de leitos clínicos e de UTI ocupados por pacientes com COVID-19, além do número de óbitos e de altas registrados por mês em cada unidade de saúde de Sergipe.
 locais_vacina | [Link do arquivo locais_vacina.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/locais_vacina.csv) | Esse arquivo modelo csv apresenta a quantidade de vacinas aplicadas em cada local de vacinação e seu respectivo município.
-municipios_final(1)| [Link do arquivo municipios_final(1).csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final%20(1).csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
+municipios_final| [Link do arquivo municipios_final.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/municipios_final.csv) | Esse arquivo modelo csv apresenta a população total e dividida por faixa etária, a ruralidade, o IDHM e a escolaridade de cada munícipio de Sergipe.
 ubs-se| [Link do arquivo ubs-se.csv](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/data/processed/ubs-se.csv) | Esse arquivo modelo csv apresenta o nome, o endereço, o cnes e a cidade de cada unidade de saúde de Sergipe.
 
 ## Bases de Dados
@@ -164,11 +164,6 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
-> Liste aqui as perguntas de pesquisa/análise e respectivas análises.
-> Nem todas as perguntas precisam de queries que as implementam.
-> É possível haver perguntas em que a solução é apenas descrita para
-> demonstrar o potencial da base.
-
 ### Pergunta/Análise 1
 * Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
   
@@ -183,10 +178,10 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY escolarizacao DESC;
   ~~~
 
-  * Não é possível verificar relação direta entre a taxa de vacinadose a escolarização do município
+  * Não é possível verificar relação direta entre a taxa de vacinadose a escolarização do município.
 
 ### Pergunta/Análise 2
- * O índice de ruralidade do município influencia aderência da vacinação?
+ * O índice de ruralidade do município influencia aderência da vacinação? Pode-se dizer que municípios rurais possuem menos acesso a vacinação?
    
   ~~~sql
     SELECT
@@ -199,7 +194,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY ruralidade;
   ~~~
 
-  * Não é possível verificar relação direta entre a taxa de vacinadose a ruralidade do município
+  * Não é possível verificar relação direta entre a taxa de vacinadose a ruralidade do município.
 
 ### Pergunta/Análise 3
  * O IDHM (IDH do município) tem alguma relação com o índice de pessoas vacinadas?
@@ -215,7 +210,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY idhm;
    ~~~
 
-   * Não é possível verificar relação direta entre a taxa de vacinadose o IDH do município
+   * Não é possível verificar relação direta entre a taxa de vacinadose o IDH do município.
 
 ### Pergunta/Análise 4
  * Qual o percentual por faixa etária de pessoas que foram vacinadas em um determinado período de tempo em determinada cidade? Com base nisso, qual deve ser o maior público alvo da campanha de vacinação durante esse período?
@@ -239,7 +234,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
   Fora isso, é possível observar que a população mais idosa possui o maior índice de vacinação completa. O que também é esperado, visto que começaram a se vacinar mais cedo.
 
 ### Pergunta/Análise 5
- * É possível observar queda nos óbitos mensais do estado a medida em que as pessas são vacinadas?
+ * É possível observar queda nos óbitos mensais do estado a medida em que as pessoas são vacinadas?
 
    ~~~sql
     CREATE VIEW vacinados_mes AS
@@ -261,4 +256,4 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
 
   ![Resultado da query](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/analise_5.png)
 
-  * É possível observar a quantidade de óbitos caindo conforme a população se vacina
+  * É possível observar a quantidade de óbitos caindo conforme a população se vacina.
