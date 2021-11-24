@@ -232,6 +232,12 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     WHERE date = '2021-12-01';
    ~~~
 
+  ![Resultado da query](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/analise_4.png)
+
+  O valor usado como referência para quantidade de pessoas por faixa etária é de 2010. Dado o crescimento populacional desde então, é justificado a taxa de vacinados ser superior a 1.
+
+  Fora isso, é possível observar que a população mais idosa possui o maior índice de vacinação completa. O que também é esperado, visto que começaram a se vacinar mais cedo.
+
 ### Pergunta/Análise 5
  * É possível observar queda nos óbitos mensais do estado a medida em que as pessas são vacinadas?
 
