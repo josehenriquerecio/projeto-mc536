@@ -172,16 +172,18 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
 ### Pergunta/Análise 1
 * Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
   
-    ~~~sql
-      SELECT
-        fv.municipio,
-        ("vacinados_completo_F_200" + "vacinados_completo_F_59" + "vacinados_completo_F_39" + "vacinados_completo_F_19" + "vacinados_completo_M_200" + "vacinados_completo_M_59" + "vacinados_completo_M_39" + "vacinados_completo_M_19")::decimal/mf.populacao AS "taxa de vacinados",
-          escolarizacao
-      FROM final_vacinacao fv
-      JOIN municipios_final mf on fv.municipio = mf.municipio
-      WHERE date = '2021-12-01'
-      ORDER BY escolarizacao DESC;
-    ~~~
+  ~~~sql
+    SELECT
+      fv.municipio,
+      ("vacinados_completo_F_200" + "vacinados_completo_F_59" + "vacinados_completo_F_39" + "vacinados_completo_F_19" + "vacinados_completo_M_200" + "vacinados_completo_M_59" + "vacinados_completo_M_39" + "vacinados_completo_M_19")::decimal/mf.populacao AS "taxa de vacinados",
+        escolarizacao
+    FROM final_vacinacao fv
+    JOIN municipios_final mf on fv.municipio = mf.municipio
+    WHERE date = '2021-12-01'
+    ORDER BY escolarizacao DESC;
+  ~~~
+
+  * Não é possível verificar relação direta entre a taxa de vacinadose a escolarização do município
 
 ### Pergunta/Análise 2
  * O índice de ruralidade do município influencia aderência da vacinação?
@@ -197,6 +199,8 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY ruralidade;
   ~~~
 
+  * Não é possível verificar relação direta entre a taxa de vacinadose a ruralidade do município
+
 ### Pergunta/Análise 3
  * O IDHM (IDH do município) tem alguma relação com o índice de pessoas vacinadas?
    
@@ -210,6 +214,8 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     WHERE date = '2021-12-01'
     ORDER BY idhm;
    ~~~
+
+   * Não é possível verificar relação direta entre a taxa de vacinadose o IDH do município
 
 ### Pergunta/Análise 4
  * Qual o percentual por faixa etária de pessoas que foram vacinadas em um determinado período de tempo em determinada cidade? Com base nisso, qual deve ser o maior público alvo da campanha de vacinação durante esse período?
@@ -246,3 +252,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     JOIN leitos_final lf ON v.date = CONCAT('2021-', lf.mes::text, '-01')::date
     GROUP BY 2, 3;
    ~~~
+
+  ![Resultado da query](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/analise_5.png)
+
+  * É possível observar a quantidade de óbitos caindo conforme a população se vacina
