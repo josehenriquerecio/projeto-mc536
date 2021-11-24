@@ -172,35 +172,77 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
 ### Pergunta/Análise 1
 * Municípios com boa escolaridade possuem maiores índices de vacinação? Tendo isso em vista, pode-se afirmar que uma boa educação ajuda na conscientização da necessidade de tomar vacinas? 
   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
+    ~~~sql
+      SELECT
+        fv.municipio,
+        ("vacinados_completo_F_200" + "vacinados_completo_F_59" + "vacinados_completo_F_39" + "vacinados_completo_F_19" + "vacinados_completo_M_200" + "vacinados_completo_M_59" + "vacinados_completo_M_39" + "vacinados_completo_M_19")::decimal/mf.populacao AS "taxa de vacinados",
+          escolarizacao
+      FROM final_vacinacao fv
+      JOIN municipios_final mf on fv.municipio = mf.municipio
+      WHERE date = '2021-12-01'
+      ORDER BY escolarizacao DESC;
+    ~~~
 
 ### Pergunta/Análise 2
- * O índice de ruralidade do município influencia nos óbitos e na velocidade/aderência da vacinação?
+ * O índice de ruralidade do município influencia aderência da vacinação?
    
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
+  ~~~sql
+    SELECT
+      fv.municipio,
+      ("vacinados_completo_F_200" + "vacinados_completo_F_59" + "vacinados_completo_F_39" + "vacinados_completo_F_19" + "vacinados_completo_M_200" + "vacinados_completo_M_59" + "vacinados_completo_M_39" + "vacinados_completo_M_19")::decimal/mf.populacao AS "taxa de vacinados",
+        ruralidade
+    FROM final_vacinacao fv
+    JOIN municipios_final mf on fv.municipio = mf.municipio
+    WHERE date = '2021-12-01'
+    ORDER BY ruralidade;
+  ~~~
 
 ### Pergunta/Análise 3
- * O IDHM (IDH do município) tem alguma relação com o índice de pessoas vacinadas? E de mortalidade?
+ * O IDHM (IDH do município) tem alguma relação com o índice de pessoas vacinadas?
    
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
+   ~~~sql
+    SELECT
+      fv.municipio,
+      ("vacinados_completo_F_200" + "vacinados_completo_F_59" + "vacinados_completo_F_39" + "vacinados_completo_F_19" + "vacinados_completo_M_200" + "vacinados_completo_M_59" + "vacinados_completo_M_39" + "vacinados_completo_M_19")::decimal/mf.populacao AS "taxa de vacinados",
+        idhm
+    FROM final_vacinacao fv
+    JOIN municipios_final mf on fv.municipio = mf.municipio
+    WHERE date = '2021-12-01'
+    ORDER BY idhm;
+   ~~~
 
 ### Pergunta/Análise 4
- * Qual é a média de pessoas que são internadas na UTI por COVID-19 e saem vivas? Qual é a chance de uma pessoa internada na UTI por consequência da COVID-19 sair com vida? 
-   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
-
-### Pergunta/Análise 5
- * Qual é a diferença entre a porcentagem de mulheres que tomaram a vacina e homens que tomaram a vacina? Sabendo isso, essa diferença é relevante? Existe a necessidade de uma campanha de conscientização de vacinação mais direcionada por gênero?
-   
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-    responde à pergunta.
-
-### Pergunta/Análise 6
  * Qual o percentual por faixa etária de pessoas que foram vacinadas em um determinado período de tempo em determinada cidade? Com base nisso, qual deve ser o maior público alvo da campanha de vacinação durante esse período?
    
-   * Explicação sucinta da análise que será feita ou conjunto de queries que
-     responde à pergunta.
+   ~~~sql
+    SELECT
+      fv.municipio,
+      ("vacinados_completo_F_200" + "vacinados_completo_M_200")::decimal/mf."60+" AS "vacinados 60+",
+        ("vacinados_completo_F_59" + "vacinados_completo_M_59")::decimal/mf."40 a 59" AS "vacinados 40-59",
+        ("vacinados_completo_F_39" + "vacinados_completo_M_39")::decimal/mf."20 a 39" AS "vacinados 20-39",
+        ("vacinados_completo_F_19" + "vacinados_completo_M_19")::decimal/mf."0 a 19" AS "vacinados 0-19"
+    FROM final_vacinacao fv
+    JOIN municipios_final mf on fv.municipio = mf.municipio
+    WHERE date = '2021-12-01';
+   ~~~
+
+### Pergunta/Análise 5
+ * É possível observar queda nos óbitos mensais do estado a medida em que as pessas são vacinadas?
+
+   ~~~sql
+    CREATE VIEW vacinados_mes AS
+    SELECT
+        SUM("vacinados_completo_F_200") + SUM("vacinados_completo_F_59") + SUM("vacinados_completo_F_39") + SUM("vacinados_completo_F_19") + SUM("vacinados_completo_M_200") + SUM("vacinados_completo_M_59") + SUM("vacinados_completo_M_39") + SUM("vacinados_completo_M_19") AS "vacinados por mes",
+        date
+    FROM
+         final_vacinacao
+    GROUP BY date;
+
+    SELECT
+        SUM(lf."saidaConfirmadaObitos") AS "total de obitos por mes",
+        "vacinados por mes",
+        lf.mes
+    FROM vacinados_mes v
+    JOIN leitos_final lf ON v.date = CONCAT('2021-', lf.mes::text, '-01')::date
+    GROUP BY 2, 3;
+   ~~~
