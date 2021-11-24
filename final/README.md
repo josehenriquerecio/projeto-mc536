@@ -178,10 +178,10 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY escolarizacao DESC;
   ~~~
 
-  * Não é possível verificar relação direta entre a taxa de vacinadose a escolarização do município
+  * Não é possível verificar relação direta entre a taxa de vacinadose a escolarização do município.
 
 ### Pergunta/Análise 2
- * O índice de ruralidade do município influencia aderência da vacinação?
+ * O índice de ruralidade do município influencia aderência da vacinação? Pode-se dizer que municípios rurais possuem menos acesso a vacinação?
    
   ~~~sql
     SELECT
@@ -194,7 +194,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY ruralidade;
   ~~~
 
-  * Não é possível verificar relação direta entre a taxa de vacinadose a ruralidade do município
+  * Não é possível verificar relação direta entre a taxa de vacinadose a ruralidade do município.
 
 ### Pergunta/Análise 3
  * O IDHM (IDH do município) tem alguma relação com o índice de pessoas vacinadas?
@@ -210,7 +210,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
     ORDER BY idhm;
    ~~~
 
-   * Não é possível verificar relação direta entre a taxa de vacinadose o IDH do município
+   * Não é possível verificar relação direta entre a taxa de vacinadose o IDH do município.
 
 ### Pergunta/Análise 4
  * Qual o percentual por faixa etária de pessoas que foram vacinadas em um determinado período de tempo em determinada cidade? Com base nisso, qual deve ser o maior público alvo da campanha de vacinação durante esse período?
@@ -228,7 +228,7 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
    ~~~
 
 ### Pergunta/Análise 5
- * É possível observar queda nos óbitos mensais do estado a medida em que as pessas são vacinadas?
+ * É possível observar queda nos óbitos mensais do estado a medida em que as pessoas são vacinadas?
 
    ~~~sql
     CREATE VIEW vacinados_mes AS
@@ -250,4 +250,4 @@ Por fim, elaboramos queries que implementam algumas das perguntas de análise qu
 
   ![Resultado da query](https://github.com/josehenriquerecio/projeto-mc536/blob/main/final/assets/analise_5.png)
 
-  * É possível observar a quantidade de óbitos caindo conforme a população se vacina
+  * É possível observar a quantidade de óbitos caindo conforme a população se vacina.
